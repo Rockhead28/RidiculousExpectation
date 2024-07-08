@@ -3,8 +3,6 @@
 import numpy as np
 import pandas as pd
 
-url = 'https://github.com/Rockhead28/RidiculousExpectation/blob/main/HH2022a.csv'
-
 def unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age):
     # Convert lists to NumPy arrays for vectorized operations
     income = np.array(income)
@@ -47,7 +45,7 @@ while True:
         print("Invalid input. Please enter valid integers for age.")
 
 # Read input and dataset from CSV file after age inputs are obtained
-data = pd.read_csv('url')
+data = pd.read_csv('HH2022a.csv')
 income = data['income'].values
 age = data['age'].values
 
