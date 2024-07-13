@@ -2,8 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-url = 'https://github.com/Rockhead28/RidiculousExpectation/blob/main/HH2022a.csv'
-
 def unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age):
     # Convert lists to NumPy arrays for vectorized operations
     income = np.array(income)
@@ -34,7 +32,7 @@ def unrealistic_expectation(gender, gender_selection, income_selection, income, 
     return percentage
 
 # Load data from CSV file
-data = pd.read_csv('url')
+data = pd.read_csv('HH2022a.csv')
 income = data['income'].values
 age = data['age'].values
 gender = data['gender'].values
