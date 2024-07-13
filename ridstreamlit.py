@@ -56,4 +56,4 @@ gender_selection = st.selectbox("Are you looking for male or female:", ['male', 
 
 if st.button("Calculate"):
     percentage = unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age)
-    st.write(f"Percentage of people meeting the criteria: {percentage:.2f}%")
+    st.write(f"Percentage of Malaysians meeting the criteria: {percentage:.2f}%")
