@@ -2,6 +2,11 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
+# Add statement at the bottom
+st.write("Dataset obtained from Department of Statistics Malaysia")
+st.write("Survey was conducted in 2022")
+st.write("n = 38,413")
+
 def unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age):
     # Convert lists to NumPy arrays for vectorized operations
     income = np.array(income)
@@ -58,7 +63,4 @@ if st.button("Calculate"):
     percentage = unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age)
     st.write(f"Percentage of Malaysians meeting the criteria: {percentage:.2f}%")
 
-# Add statement at the bottom
-st.write("Dataset obtained from Department of Statistics Malaysia")
-st.write("Survey was conducted in 2022")
-st.write("n = 38,413")
+
