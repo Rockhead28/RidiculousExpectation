@@ -1,6 +1,4 @@
-#works as intended in python
-
-import streamlist as st
+import streamlit as st
 import numpy as np
 import pandas as pd
 
@@ -33,38 +31,29 @@ def unrealistic_expectation(gender, gender_selection, income_selection, income, 
     percentage = (number_of_pax / total_pax) * 100
     return percentage
 
-# Ask for minimum and maximum age inputs
-while True:
-    try:
-        age_min = int(input("Enter Minimum Age: "))
-        age_max = int(input("Enter Maximum Age: "))
-        if age_min >= age_max:
-            print("Maximum age should be greater than minimum age.")
-        else:
-            break  # Exit the loop if input is valid
-    except ValueError:
-        print("Invalid input. Please enter valid integers for age.")
-
-# Read input and dataset from CSV file after age inputs are obtained
+# Load data from CSV file
 data = pd.read_csv('HH2022a.csv')
 income = data['income'].values
 age = data['age'].values
+gender = data['gender'].values
+
+# Streamlit app
+st.title("Unrealistic Expectation Calculator")
+
+# Ask for minimum and maximum age inputs using sliders
+age_min, age_max = st.slider(
+    "Select age range",
+    min_value=int(age.min()),
+    max_value=int(age.max()),
+    value=(20, 40)  # Default range
+)
 
 # Ask for preferred annual salary input
-while True:
-    try:
-        income_selection = int(input("Enter Minimum Monthly Salary: "))
-        break  # Exit the loop if input is valid
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+income_selection = st.number_input("Enter Minimum Monthly Salary:", min_value=0)
 
 # Ask for gender preference
-while True:
-    gender_selection = input("Are you looking for male or female: ").lower()
-    if gender_selection in ['male', 'female']:
-        break
-    else:
-        print("Invalid input. Please enter either 'male' or 'female'.")
+gender_selection = st.selectbox("Are you looking for male or female:", ['male', 'female'])
 
-percentage = unrealistic_expectation(data['gender'].values, gender_selection, income_selection, income, age_min, age_max, age)
-print(f"Percentage of people meeting the criteria: {percentage:.2f}%")
+if st.button("Calculate"):
+    percentage = unrealistic_expectation(gender, gender_selection, income_selection, income, age_min, age_max, age)
+    st.write(f"Percentage of people meeting the criteria: {percentage:.2f}%")
