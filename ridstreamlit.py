@@ -52,7 +52,7 @@ age_min, age_max = st.slider(
 )
 
 # Ask for preferred annual salary input
-income_selection = st.number_input("Enter Minimum Monthly Salary:", min_value=0)
+income_selection = st.number_input("Enter Minimum Monthly Salary (MYR):", min_value=0)
 
 # Ask for gender preference
 gender_selection = st.selectbox("Are you looking for male or female:", ['male', 'female'])
