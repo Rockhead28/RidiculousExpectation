@@ -40,7 +40,7 @@ age = data['age'].values
 gender = data['gender'].values
 
 # Streamlit app
-st.title("Unrealistic Expectation Calculator")
+st.title("How big is your dating pool?")
 
 # Ask for minimum and maximum age inputs using sliders
 age_min, age_max = st.slider(
