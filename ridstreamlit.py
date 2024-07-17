@@ -40,7 +40,7 @@ age = data['age'].values
 gender = data['gender'].values
 
 # Streamlit app
-st.title("Unrealistic Expectation")
+st.title("Partner Salary Check")
 
 # Ask for minimum and maximum age inputs using sliders
 age_min, age_max = st.slider(
